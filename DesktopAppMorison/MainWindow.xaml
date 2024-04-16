@@ -1,0 +1,35 @@
+﻿<Window x:Class="DesktopAppMorison.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopAppMorison"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+   
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#333" Offset="1"/>
+                <GradientStop Color="#3f4657" Offset="0.009"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button  Background="#8026d8" Foreground="#FFFFFF"  Content="Для персонала" FontSize="25" HorizontalAlignment="Left" Margin="117,183,0,0" VerticalAlignment="Top" Height="58" Width="245" Click="Button_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+           
+        </Button>
+
+        <Button Background="#FFFFFF" Foreground="#6901dd" FontWeight="Medium" Content="Для пользователей" FontSize="25" HorizontalAlignment="Left" Margin="400,183,0,0" VerticalAlignment="Top" Height="58" Width="259" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

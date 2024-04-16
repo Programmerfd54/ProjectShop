@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="user187_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="user187_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="PO_Customer" EntityType="user187_dbModel.PO_Customer" />
+    <EntitySet Name="PO_Equipment" EntityType="user187_dbModel.PO_Equipment" />
+    <EntitySet Name="PO_ListOfIncludedChannelsAndServices" EntityType="user187_dbModel.PO_ListOfIncludedChannelsAndServices" />
+    <EntitySet Name="PO_NameAdditionalServices" EntityType="user187_dbModel.PO_NameAdditionalServices" />
+    <EntitySet Name="PO_NameEquipmentType" EntityType="user187_dbModel.PO_NameEquipmentType" />
+    <EntitySet Name="PO_Orders" EntityType="user187_dbModel.PO_Orders" />
+    <EntitySet Name="PO_Repair" EntityType="user187_dbModel.PO_Repair" />
+    <EntitySet Name="PO_ServicePackages" EntityType="user187_dbModel.PO_ServicePackages" />
+    <EntitySet Name="PO_Status" EntityType="user187_dbModel.PO_Status" />
+    <AssociationSet Name="FK_PO_Orders_PO_Customer" Association="user187_dbModel.FK_PO_Orders_PO_Customer">
+      <End Role="PO_Customer" EntitySet="PO_Customer" />
+      <End Role="PO_Orders" EntitySet="PO_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Equipment_PO_NameEquipmentType" Association="user187_dbModel.FK_PO_Equipment_PO_NameEquipmentType">
+      <End Role="PO_NameEquipmentType" EntitySet="PO_NameEquipmentType" />
+      <End Role="PO_Equipment" EntitySet="PO_Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Orders_PO_Equipment" Association="user187_dbModel.FK_PO_Orders_PO_Equipment">
+      <End Role="PO_Equipment" EntitySet="PO_Equipment" />
+      <End Role="PO_Orders" EntitySet="PO_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Repair_PO_Equipment" Association="user187_dbModel.FK_PO_Repair_PO_Equipment">
+      <End Role="PO_Equipment" EntitySet="PO_Equipment" />
+      <End Role="PO_Repair" EntitySet="PO_Repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_ServicePackages_PO_ListOfIncludedChannelsAndServices" Association="user187_dbModel.FK_PO_ServicePackages_PO_ListOfIncludedChannelsAndServices">
+      <End Role="PO_ListOfIncludedChannelsAndServices" EntitySet="PO_ListOfIncludedChannelsAndServices" />
+      <End Role="PO_ServicePackages" EntitySet="PO_ServicePackages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Orders_PO_ServicePackages" Association="user187_dbModel.FK_PO_Orders_PO_ServicePackages">
+      <End Role="PO_ServicePackages" EntitySet="PO_ServicePackages" />
+      <End Role="PO_Orders" EntitySet="PO_Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PO_Repair_PO_Status" Association="user187_dbModel.FK_PO_Repair_PO_Status">
+      <End Role="PO_Status" EntitySet="PO_Status" />
+      <End Role="PO_Repair" EntitySet="PO_Repair" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="PO_Customer">
+    <Key>
+      <PropertyRef Name="id_customer" />
+    </Key>
+    <Property Name="id_customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstNameCustomer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastNameCustomer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleNameCustomer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumberCustomer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailCustomer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PO_Orders" Relationship="user187_dbModel.FK_PO_Orders_PO_Customer" FromRole="PO_Customer" ToRole="PO_Orders" />
+  </EntityType>
+  <EntityType Name="PO_Equipment">
+    <Key>
+      <PropertyRef Name="id_equipment" />
+    </Key>
+    <Property Name="id_equipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EquipmentType" Type="Int32" Nullable="false" />
+    <Property Name="SerialNumber" Type="Int32" Nullable="false" />
+    <Property Name="AvailableEquipmentInStock" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="InstallationDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastRepairDate" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="PO_NameEquipmentType" Relationship="user187_dbModel.FK_PO_Equipment_PO_NameEquipmentType" FromRole="PO_Equipment" ToRole="PO_NameEquipmentType" />
+    <NavigationProperty Name="PO_Orders" Relationship="user187_dbModel.FK_PO_Orders_PO_Equipment" FromRole="PO_Equipment" ToRole="PO_Orders" />
+    <NavigationProperty Name="PO_Repair" Relationship="user187_dbModel.FK_PO_Repair_PO_Equipment" FromRole="PO_Equipment" ToRole="PO_Repair" />
+  </EntityType>
+  <EntityType Name="PO_ListOfIncludedChannelsAndServices">
+    <Key>
+      <PropertyRef Name="id_list" />
+    </Key>
+    <Property Name="id_list" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ListOfIncludedChannelsAndServices" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PO_ServicePackages" Relationship="user187_dbModel.FK_PO_ServicePackages_PO_ListOfIncludedChannelsAndServices" FromRole="PO_ListOfIncludedChannelsAndServices" ToRole="PO_ServicePackages" />
+  </EntityType>
+  <EntityType Name="PO_NameAdditionalServices">
+    <Key>
+      <PropertyRef Name="id_additionalservices" />
+    </Key>
+    <Property Name="id_additionalservices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameAdditionalServices" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PO_NameEquipmentType">
+    <Key>
+      <PropertyRef Name="id_equipmentyype" />
+    </Key>
+    <Property Name="id_equipmentyype" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameEquipmentType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PO_Equipment" Relationship="user187_dbModel.FK_PO_Equipment_PO_NameEquipmentType" FromRole="PO_NameEquipmentType" ToRole="PO_Equipment" />
+  </EntityType>
+  <EntityType Name="PO_Orders">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="id_customer" Type="Int32" Nullable="false" />
+    <Property Name="id_package" Type="Int32" Nullable="false" />
+    <Property Name="id_equipment" Type="Int32" Nullable="false" />
+    <Property Name="OrderTotal" Type="Int32" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PO_Customer" Relationship="user187_dbModel.FK_PO_Orders_PO_Customer" FromRole="PO_Orders" ToRole="PO_Customer" />
+    <NavigationProperty Name="PO_Equipment" Relationship="user187_dbModel.FK_PO_Orders_PO_Equipment" FromRole="PO_Orders" ToRole="PO_Equipment" />
+    <NavigationProperty Name="PO_ServicePackages" Relationship="user187_dbModel.FK_PO_Orders_PO_ServicePackages" FromRole="PO_Orders" ToRole="PO_ServicePackages" />
+  </EntityType>
+  <EntityType Name="PO_Repair">
+    <Key>
+      <PropertyRef Name="Id_repair" />
+    </Key>
+    <Property Name="Id_repair" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_equipment" Type="Int32" Nullable="false" />
+    <Property Name="comments" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PO_Equipment" Relationship="user187_dbModel.FK_PO_Repair_PO_Equipment" FromRole="PO_Repair" ToRole="PO_Equipment" />
+    <NavigationProperty Name="PO_Status" Relationship="user187_dbModel.FK_PO_Repair_PO_Status" FromRole="PO_Repair" ToRole="PO_Status" />
+  </EntityType>
+  <EntityType Name="PO_ServicePackages">
+    <Key>
+      <PropertyRef Name="id_package" />
+    </Key>
+    <Property Name="id_package" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PackageName" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="Duration" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ListOfIncludedChannelsAndServices" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="PO_ListOfIncludedChannelsAndServices" Relationship="user187_dbModel.FK_PO_ServicePackages_PO_ListOfIncludedChannelsAndServices" FromRole="PO_ServicePackages" ToRole="PO_ListOfIncludedChannelsAndServices" />
+    <NavigationProperty Name="PO_Orders" Relationship="user187_dbModel.FK_PO_Orders_PO_ServicePackages" FromRole="PO_ServicePackages" ToRole="PO_Orders" />
+  </EntityType>
+  <EntityType Name="PO_Status">
+    <Key>
+      <PropertyRef Name="id_status" />
+    </Key>
+    <Property Name="id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="naimen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PO_Repair" Relationship="user187_dbModel.FK_PO_Repair_PO_Status" FromRole="PO_Status" ToRole="PO_Repair" />
+  </EntityType>
+  <Association Name="FK_PO_Orders_PO_Customer">
+    <End Type="user187_dbModel.PO_Customer" Role="PO_Customer" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Orders" Role="PO_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_Customer">
+        <PropertyRef Name="id_customer" />
+      </Principal>
+      <Dependent Role="PO_Orders">
+        <PropertyRef Name="id_customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Equipment_PO_NameEquipmentType">
+    <End Type="user187_dbModel.PO_NameEquipmentType" Role="PO_NameEquipmentType" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Equipment" Role="PO_Equipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_NameEquipmentType">
+        <PropertyRef Name="id_equipmentyype" />
+      </Principal>
+      <Dependent Role="PO_Equipment">
+        <PropertyRef Name="EquipmentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Orders_PO_Equipment">
+    <End Type="user187_dbModel.PO_Equipment" Role="PO_Equipment" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Orders" Role="PO_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_Equipment">
+        <PropertyRef Name="id_equipment" />
+      </Principal>
+      <Dependent Role="PO_Orders">
+        <PropertyRef Name="id_equipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Repair_PO_Equipment">
+    <End Type="user187_dbModel.PO_Equipment" Role="PO_Equipment" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Repair" Role="PO_Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_Equipment">
+        <PropertyRef Name="id_equipment" />
+      </Principal>
+      <Dependent Role="PO_Repair">
+        <PropertyRef Name="Id_equipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_ServicePackages_PO_ListOfIncludedChannelsAndServices">
+    <End Type="user187_dbModel.PO_ListOfIncludedChannelsAndServices" Role="PO_ListOfIncludedChannelsAndServices" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_ServicePackages" Role="PO_ServicePackages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_ListOfIncludedChannelsAndServices">
+        <PropertyRef Name="id_list" />
+      </Principal>
+      <Dependent Role="PO_ServicePackages">
+        <PropertyRef Name="ListOfIncludedChannelsAndServices" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Orders_PO_ServicePackages">
+    <End Type="user187_dbModel.PO_ServicePackages" Role="PO_ServicePackages" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Orders" Role="PO_Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_ServicePackages">
+        <PropertyRef Name="id_package" />
+      </Principal>
+      <Dependent Role="PO_Orders">
+        <PropertyRef Name="id_package" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PO_Repair_PO_Status">
+    <End Type="user187_dbModel.PO_Status" Role="PO_Status" Multiplicity="1" />
+    <End Type="user187_dbModel.PO_Repair" Role="PO_Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PO_Status">
+        <PropertyRef Name="id_status" />
+      </Principal>
+      <Dependent Role="PO_Repair">
+        <PropertyRef Name="id_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

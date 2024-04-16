@@ -1,0 +1,52 @@
+﻿<Window x:Class="DesktopAppMorison.Personal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopAppMorison"
+        mc:Ignorable="d"
+        Title="Personal" Height="550" Width="400">
+
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#333" Offset="1"/>
+                <GradientStop Color="#3f4657" Offset="0.009"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Label Foreground="#FFFFFF" FontSize="35"  Content="DNS - все для своих" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="#FFFFFF" FontSize="25"  Content="Выберите роль" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="#FFFFFF" FontSize="25"  Content="Введите логин" HorizontalAlignment="Left" Margin="44,197,0,0" VerticalAlignment="Top"/>
+        <Label Foreground="#FFFFFF" FontSize="25"  Content="Введите пароль" HorizontalAlignment="Left" Margin="44,286,0,0" VerticalAlignment="Top"/>
+
+        <ComboBox x:Name="comb" Background="#FFFFFF" FontSize="25" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="312" Height="42">
+            <ComboBoxItem>Админ</ComboBoxItem>
+            <ComboBoxItem>Менеджер</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="log"  HorizontalAlignment="Center" FontSize="25" Margin="0,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="42" RenderTransformOrigin="0.368,2.217" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox x:Name="pass"  HorizontalAlignment="Center" FontSize="25" Margin="0,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="42" RenderTransformOrigin="0.368,2.217" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Button Background="#FFFFFF" Foreground="#6901dd" FontWeight="Medium" Content="Войти" FontSize="25" HorizontalAlignment="Center" Margin="0,414,0,0" VerticalAlignment="Top" Height="58" Width="312" Click="Button_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище user187_dbModelContainer" CdmEntityContainer="user187_dbEntities">
+    <EntitySetMapping Name="PO_Customer">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_Customer">
+        <MappingFragment StoreEntitySet="PO_Customer">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailCustomer" ColumnName="EmailCustomer" />
+          <ScalarProperty Name="PhoneNumberCustomer" ColumnName="PhoneNumberCustomer" />
+          <ScalarProperty Name="MiddleNameCustomer" ColumnName="MiddleNameCustomer" />
+          <ScalarProperty Name="LastNameCustomer" ColumnName="LastNameCustomer" />
+          <ScalarProperty Name="FirstNameCustomer" ColumnName="FirstNameCustomer" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_Equipment">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_Equipment">
+        <MappingFragment StoreEntitySet="PO_Equipment">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="LastRepairDate" ColumnName="LastRepairDate" />
+          <ScalarProperty Name="InstallationDate" ColumnName="InstallationDate" />
+          <ScalarProperty Name="AvailableEquipmentInStock" ColumnName="AvailableEquipmentInStock" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="EquipmentType" ColumnName="EquipmentType" />
+          <ScalarProperty Name="id_equipment" ColumnName="id_equipment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_ListOfIncludedChannelsAndServices">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_ListOfIncludedChannelsAndServices">
+        <MappingFragment StoreEntitySet="PO_ListOfIncludedChannelsAndServices">
+          <ScalarProperty Name="ListOfIncludedChannelsAndServices" ColumnName="ListOfIncludedChannelsAndServices" />
+          <ScalarProperty Name="id_list" ColumnName="id_list" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_NameAdditionalServices">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_NameAdditionalServices">
+        <MappingFragment StoreEntitySet="PO_NameAdditionalServices">
+          <ScalarProperty Name="NameAdditionalServices" ColumnName="NameAdditionalServices" />
+          <ScalarProperty Name="id_additionalservices" ColumnName="id_additionalservices" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_NameEquipmentType">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_NameEquipmentType">
+        <MappingFragment StoreEntitySet="PO_NameEquipmentType">
+          <ScalarProperty Name="NameEquipmentType" ColumnName="NameEquipmentType" />
+          <ScalarProperty Name="id_equipmentyype" ColumnName="id_equipmentyype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_Orders">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_Orders">
+        <MappingFragment StoreEntitySet="PO_Orders">
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="id_equipment" ColumnName="id_equipment" />
+          <ScalarProperty Name="id_package" ColumnName="id_package" />
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_Repair">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_Repair">
+        <MappingFragment StoreEntitySet="PO_Repair">
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="Id_equipment" ColumnName="Id_equipment" />
+          <ScalarProperty Name="Id_repair" ColumnName="Id_repair" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_ServicePackages">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_ServicePackages">
+        <MappingFragment StoreEntitySet="PO_ServicePackages">
+          <ScalarProperty Name="ListOfIncludedChannelsAndServices" ColumnName="ListOfIncludedChannelsAndServices" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PackageName" ColumnName="PackageName" />
+          <ScalarProperty Name="id_package" ColumnName="id_package" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PO_Status">
+      <EntityTypeMapping TypeName="user187_dbModel.PO_Status">
+        <MappingFragment StoreEntitySet="PO_Status">
+          <ScalarProperty Name="naimen" ColumnName="naimen" />
+          <ScalarProperty Name="id_status" ColumnName="id_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

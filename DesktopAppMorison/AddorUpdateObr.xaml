@@ -1,0 +1,77 @@
+﻿<Window x:Class="DesktopAppMorison.AddorUpdateObr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopAppMorison"
+        mc:Ignorable="d"
+        Title="AddorUpdateObr" Height="550" Width="350">
+    <Grid>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#333" Offset="1"/>
+                <GradientStop Color="#3f4657" Offset="0.009"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ComboBox x:Name="obr" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="280" Height="42" DisplayMemberPath="NameEquipmentType" SelectedIndex="0" SelectedItem="{Binding PO_NameEquipmentType}" Text="{Binding PO_NameEquipmentType.NameEquipmentType}"/>
+        <TextBox  Text="{Binding SerialNumber}" HorizontalAlignment="Left" FontSize="25" Margin="10,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Height="42" RenderTransformOrigin="0.368,2.217" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+            <UIElement.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </UIElement.RenderTransform>
+        </TextBox>
+        <TextBox  Text="{Binding AvailableEquipmentInStock}" HorizontalAlignment="Left" FontSize="25" Margin="10,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Height="42" RenderTransformOrigin="0.368,2.217" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <DatePicker SelectedDate="{Binding  InstallationDate}" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top"/>
+        <Label Content="Выберите тип оборудования" Foreground="#FFFFFF" FontSize="15" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="289"/>
+        <Label Content="Впишите номер оборудования" Foreground="#FFFFFF" FontSize="15" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top" Width="288"/>
+        <Label Content="Есть ли в наличии" Foreground="#FFFFFF" FontSize="15" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Width="289"/>
+        <Label Content="Добавление оборудования" Foreground="#FFFFFF" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="288"/>
+        <Button Background="#FFFFFF" Foreground="#6901dd" FontWeight="Medium" Content="Добавить" FontSize="25" HorizontalAlignment="Left" Margin="10,448,0,0" VerticalAlignment="Top" Height="58" Width="322" Click="Button_Click">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox Text="{Binding Price}"  HorizontalAlignment="Left" FontSize="25" Margin="10,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Height="42" RenderTransformOrigin="0.368,2.217" >
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="3"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="Цена" Foreground="#FFFFFF" FontSize="15" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Width="289"/>
+    </Grid>
+</Window>
